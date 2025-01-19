@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SYRUP</title>
+  <style>
+    body {
+      font-family: monospace;
+      text-align: center;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 20px;
+      color: #333;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    h1 {
+      color: inherit;
+    }
+    select, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+    }
+    .ascii-art {
+      margin-top: 20px;
+      white-space: pre;
+      font-size: 18px;
+      color: inherit;
+    }
+    .dark-mode {
+      background-color: #121212;
+      color: #f0f8ff;
+    }
+  </style>
+</head>
+<body>
+  <h1>RupCat Generator</h1>
+  <div>
+    <label for="cat-select">Choose a cat species:</label>
+    <select id="cat-select">
+      <option value="persian">Persian Cat</option>
+      <option value="siamese">Siamese Cat</option>
+      <option value="maine-coon">Maine Coon</option>
+      <option value="RUPCAT">RUP Cat</option>
+    </select>
+    <button onclick="displayCatArt()">Show Art</button>
+    <button onclick="toggleDarkMode()">RUPCAT Dark Mode</button>
+  </div>
+  <div class="ascii-art" id="ascii-art"></div>
+
+  <script>
+    const catArt = {
+      "persian":`
+/\\_/\\
+(  o.o  )
+> ^ <
+`,
+      "siamese":`
+/\\_/\\
+((0 ^ 0))
+\\~(*)~/
+(    )
+`,
+      "maine-coon":`
+/\\_/\\
+( o   o )
+(< ^ >)
+ "" "" 
+`,
+      "RUPCAT":`
+/\\_/\\
+( o.o )
+>   <
+/       \\
+/  <   >  |
+|           \\
+\\           |
+\\__u__u__/
+
+`
+    };
+
+    function displayCatArt() {
+      const selectedCat = document.getElementById("cat-select").value;
+      const artContainer = document.getElementById("ascii-art");
+      artContainer.textContent = catArt[selectedCat];
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+</body>
+</html>
