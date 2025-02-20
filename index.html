@@ -17,6 +17,17 @@
     h1 {
       color: inherit;
     }
+    /* Container for buttons */
+    .button-container {
+      display: flex;
+      justify-content: center; /* Align buttons horizontally in the center */
+      flex-wrap: wrap; /* Allow elements to wrap to the next line if needed */
+      margin-bottom: 20px; /* Space between buttons and art */
+    }
+    .button-container label {
+      display: block;
+      margin-right: 10px; /* Space between label and select */
+    }
     select, button {
       padding: 10px;
       margin: 10px;
@@ -36,16 +47,19 @@
 </head>
 <body>
   <h1>RupCat Generator</h1>
-  <div>
-    <label for="cat-select">Choose a cat species:</label>
-    <select id="cat-select">
-      <option value="persian">Persian Cat</option>
-      <option value="siamese">Siamese Cat</option>
-      <option value="maine-coon">Maine Coon</option>
-      <option value="RUPCAT">RUP Cat</option>
-    </select>
+  <div class="button-container">
+    <div>
+      <label for="cat-select">Choose a cat species:</label>
+      <select id="cat-select">
+        <option value="persian">Persian Cat</option>
+        <option value="siamese">Siamese Cat</option>
+        <option value="maine-coon">Maine Coon</option>
+        <option value="RUPCAT">RUP Cat</option>
+      </select>
+    </div>
     <button onclick="displayCatArt()">Show Art</button>
     <button onclick="toggleDarkMode()">RUPCAT Dark Mode</button>
+    <a href="raincat.html"><button>RUP MYTH</button></a>
   </div>
   <div class="ascii-art" id="ascii-art"></div>
 
@@ -59,7 +73,7 @@
       "siamese":`
 /\\_/\\
 ((0 ^ 0))
-\\~(*)~/
+\\~(*)~/ 
 (    )
 `,
       "maine-coon":`
@@ -71,13 +85,12 @@
       "RUPCAT":`
 /\\_/\\
 ( o.o )
->   <
+>   < 
 /       \\
 /  <   >  |
 |           \\
 \\           |
 \\__u__u__/
-
 `
     };
 
