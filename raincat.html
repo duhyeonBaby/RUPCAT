@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비 오는 날 럽이</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap');
+        body {
+            background-color: #cce7ff;
+            text-align: center;
+            font-family: 'Gaegu', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .umbrella {
+            width: 150px;
+            animation: float 2s infinite ease-in-out alternate;
+        }
+        .cat {
+            width: 150px;
+            margin-top: 20px;
+            animation: float 2s infinite ease-in-out alternate;
+        }
+        .text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            animation: textFloat 2s infinite ease-in-out alternate;
+        }
+        @keyframes float {
+            0% { transform: translateY(-10px); }
+            100% { transform: translateY(10px); }
+        }
+        @keyframes textFloat {
+            0% { transform: translateY(-10px); }
+            100% { transform: translateY(10px); }
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .dark-mode-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #444;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .mode-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <img class="mode-icon" id="modeIcon" src="https://cdn-icons-png.flaticon.com/512/1163/1163661.png" alt="해">
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()">Night Cat</button>
+    <div class="container">
+        <img class="umbrella" src="https://cdn-icons-png.flaticon.com/512/427/427112.png" alt="우산을 쓴 럽이">
+        <p class="text">"비가 내리면 럽이가 우산을 쓰고 밖으로 나온다는 얘기가 있다."<br>"나는 이 이야기를 무척 좋아한다."</p>
+        <img class="cat" src="raincat/rupcat.png" alt="고양이">
+    </div>
+    <script>
+        function toggleDarkMode() {
+            const body = document.body;
+            const button = document.querySelector('.dark-mode-toggle');
+            const modeIcon = document.getElementById('modeIcon');
+            
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
+                button.textContent = 'Day Cat';
+                modeIcon.src = "https://cdn-icons-png.flaticon.com/512/1163/1163624.png"; // 달 아이콘
+                modeIcon.alt = "달";
+            } else {
+                button.textContent = 'Night Cat';
+                modeIcon.src = "https://cdn-icons-png.flaticon.com/512/1163/1163661.png"; // 해 아이콘
+                modeIcon.alt = "해";
+            }
+        }
+    </script>
+</body>
+</html>
